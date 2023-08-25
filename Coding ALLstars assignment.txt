@@ -1,0 +1,286 @@
+Task 1:
+
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>CSS Competence Trial</title>
+</head>
+<body>
+  <header>
+    <h1>The main Page</h1>
+  </header>
+  <main>
+    <section class="content">
+      <h2>Welcome to my page!</h2>
+      <p>This is the main content of the page.</p>
+      <button class="hover-effect">Hover Me</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; Varun</p>
+  </footer>
+</body>
+</html>
+
+CSS:
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #e74c3c;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+header, main, footer {
+  padding: 20px;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+}
+
+main {
+  background-color: #ecf0f1;
+}
+
+footer {
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button.hover-effect {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.hover-effect:hover {
+  background-color: #c0392b;
+}
+
+@media screen and (max-width: 768px) {
+  header, main, footer {
+    padding: 10px;
+  }
+}
+
+
+
+
+Task 2:
+
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>CSS Animation Showcase</title>
+</head>
+<body>
+  <header>
+    <h1>CSS Animation Showcase</h1>
+  </header>
+  <main>
+    <section class="interactive-section">
+      <button class="btn-scale">Scale</button>
+      <div class="box-scale"></div>
+    </section>
+    <section class="interactive-section">
+      <input type="checkbox" class="toggle-checkbox">
+      <div class="toggle-switch"></div>
+    </section>
+    <section class="interactive-section">
+      <input type="range" class="slider">
+      <div class="slider-thumb"></div>
+    </section>
+    <section class="pseudo-elements-section">
+      <div class="box-with-pseudo"></div>
+    </section>
+    <section class="3d-section">
+      <div class="card">
+        <div class="card-front">Front</div>
+        <div class="card-back">Back</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 CSS Animation Showcase</p>
+  </footer>
+</body>
+</html>
+
+CSS:
+
+/* Reset some default styles */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Main styles */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+/* Interactive section styles */
+.interactive-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn-scale {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.btn-scale:hover {
+  transform: scale(1.1);
+}
+
+/* Toggle switch styles */
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background-color: #2ecc71;
+}
+
+/* Slider styles */
+.slider {
+  width: 100%;
+}
+
+.slider-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  transform: translateX(-50%);
+}
+
+/* Pseudo-elements section styles */
+.pseudo-elements-section {
+  text-align: center;
+}
+
+.box-with-pseudo {
+  width: 150px;
+  height: 150px;
+  background-color: #f39c12;
+  position: relative;
+}
+
+.box-with-pseudo::before,
+.box-with-pseudo::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #2ecc71;
+  position: absolute;
+}
+
+.box-with-pseudo::before {
+  top: -10px;
+  left: -10px;
+}
+
+.box-with-pseudo::after {
+  bottom: -10px;
+  right: -10px;
+}
+
+/* 3D section styles */
+.3d-section {
+  text-align: center;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.card div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #3498db;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: #e74c3c;
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
